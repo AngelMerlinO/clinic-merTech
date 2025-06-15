@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Rayos X{% endblock %}</title>
+  <link href="{% static '/output.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen">
+
+  <!-- Navbar -->
+  {% include "partials/navbar.html" %}
+
+  <!-- Contenido -->
+  <main class="p-6">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  {% include "partials/footer.html" %}
+</body>
+</html>

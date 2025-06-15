@@ -1,0 +1,14 @@
+{% extends "base_public.html" %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block content %}
+  <div class="max-w-md mx-auto bg-white p-8 shadow rounded-xl">
+    <h2 class="text-xl font-bold mb-4">Iniciar sesión</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary w-full mt-4">Entrar</button>
+    </form>
+  </div>
+{% endblock %}
