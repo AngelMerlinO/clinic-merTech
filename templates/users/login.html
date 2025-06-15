@@ -1,14 +1,39 @@
 {% extends "base_public.html" %}
+{% load widget_tweaks %}
 
 {% block title %}Iniciar sesión{% endblock %}
 
 {% block content %}
-  <div class="max-w-md mx-auto bg-white p-8 shadow rounded-xl">
-    <h2 class="text-xl font-bold mb-4">Iniciar sesión</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-primary w-full mt-4">Entrar</button>
-    </form>
+  <div class="card w-full max-w-3xl mx-4 sm:mx-auto bg-base-100 shadow-xl lg:card-side">
+    <figure class="hidden lg:block lg:w-1/2">
+      <img
+        src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+        alt="login"
+        class="h-full object-cover rounded-l-xl"
+      />
+    </figure>
+    <div class="card-body w-full lg:w-1/2">
+      <h2 class="card-title text-2xl">Iniciar sesión</h2>
+      <p class="text-sm text-gray-500">Accede al sistema de control de rayos X</p>
+      <form method="post" class="flex flex-col gap-4 mt-4">
+        {% csrf_token %}
+
+        <div>
+          <label class="label" for="id_username">
+            <span class="label-text">Usuario</span>
+          </label>
+          {{ form.username|add_class:"input input-bordered w-full" }}
+        </div>
+
+        <div>
+          <label class="label" for="id_password">
+            <span class="label-text">Contraseña</span>
+          </label>
+          {{ form.password|add_class:"input input-bordered w-full" }}
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Entrar</button>
+      </form>
+    </div>
   </div>
 {% endblock %}
