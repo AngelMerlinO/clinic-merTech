@@ -4,20 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %}Rayos X{% endblock %}</title>
-  <link href="{% static '/output.css' %}" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts: Inter & IBM Plex Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?
+      family=Inter:wght@400;500;600;700&
+      family=IBM+Plex+Sans:wght@400;500;600;700&
+      display=swap" 
+    rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            plex: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui'],
+          },
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-100 text-gray-900 min-h-screen">
+<body class="font-sans bg-gray-100 text-gray-900 min-h-screen flex flex-col">
 
   <!-- Navbar -->
   {% include "partials/navbar.html" %}
 
-  <!-- Contenido -->
-  <main class="p-6">
+  <!-- Contenido principal -->
+  <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6">
     {% block content %}
     {% endblock %}
   </main>
 
   <!-- Footer -->
   {% include "partials/footer.html" %}
+
 </body>
 </html>
